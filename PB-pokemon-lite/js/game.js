@@ -26,10 +26,10 @@ const gamestate = {
 const pokemonApi = "https://pokeapi.co/api/v2/pokemon/";
 
 // Game variable
-var currentGamestate;
-var player1;
-var player2;
-var battle;
+let currentGamestate;
+let player1;
+let player2;
+let battle;
 
 // Game-flow functions
 // Initialize the game, set gamestate to intro
@@ -39,7 +39,7 @@ function onInit() {
 }
 
 // Start the game and set gamestate to choose
-function onStart() {
+function onStartGame() {
   initChoose();
   setActiveView(currentGamestate);
 }
@@ -47,6 +47,7 @@ function onStart() {
 // Start the battle
 function onStartBattle() {
   initBattle();
+  updateBattle();
   setActiveView(currentGamestate);
 }
 
@@ -59,7 +60,7 @@ function onPlayAgain() {
 
 // function to set the view based on gamestate
 function setActiveView(currentGamestate) {
-  for (var state in gamestate) {
+  for (let state in gamestate) {
     if (gamestate[state] === currentGamestate) {
       document.getElementById(gamestate[state]).style.display = "block";
     } else {
@@ -116,4 +117,10 @@ function choosed(event) {
 // In case it died, we still have the original ^^ wink wink
 function clonePokemon(pokemon) {
   return JSON.parse(JSON.stringify(pokemon));
+}
+
+function updateBattle() {
+  const currentTurnPokemonName = battle.currentPlayerTurn.pokemon.pokemonName;
+  document.getElementById("current-player-pokemon").src = `/img/pokemon/${currentTurnPokemonName}.png`;
+
 }

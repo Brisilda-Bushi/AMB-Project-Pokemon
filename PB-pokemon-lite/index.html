@@ -34,7 +34,7 @@
       <!-- intro -->
       <div id="intro" class="intro" style="display:none">
         <span class="title">Pokemon Lite!</span>
-        <button type="button" class="nes-btn is-success movein center-abs" onclick="onStart()">Start Game</button>
+        <button type="button" class="nes-btn is-success movein center-abs" onclick="onStartGame()">Start Game</button>
       </div>
 
       <!-- choose pokemon -->
@@ -48,9 +48,21 @@
 
       <!-- battle screen -->
       <div id="battle" class="battle" style="display:none">
+
+        <div class="current-player-card">
+          <img id="current-player-pokemon">
+          <div id="current-player-pokemon-menu">
+
+          </div>
+        </div>
+
+        <div id="target-player-card">
+          
+        </div>
+
         <div class="nes-container is-dark with-title battle-log">
           <p class="title">Battle log</p>
-          <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+          <p>Pokemons!!! have a fair fight. 3...2...1...go</p>
         </div>
       </div>
 
