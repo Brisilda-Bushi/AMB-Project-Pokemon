@@ -2,7 +2,7 @@ class Battle {
   constructor() {
     this.turn = 1;
     this.currentPlayerTurn;
-    this.players = [];
+    this.targetPlayer;
   }
 }
 
@@ -75,6 +75,7 @@ function initGame() {
   currentGamestate = gamestate.INTRO;
   player1 = new Player(1);
   player2 = new Player(2);
+  document.getElementById("choose-player-name").innerHTML = "Player 1";
 }
 
 // Initializing choose screen
@@ -95,9 +96,8 @@ function initChoose() {
 // Initializing battle screen
 function initBattle() {
   battle = new Battle();
-  battle.players.push(player1);
-  battle.players.push(player2);
   battle.currentPlayerTurn = player1;
+  battle.targetPlayer = player2;
   currentGamestate = gamestate.BATTLE;
 }
 
@@ -120,7 +120,7 @@ function clonePokemon(pokemon) {
 }
 
 function updateBattle() {
-  const currentTurnPokemonName = battle.currentPlayerTurn.pokemon.pokemonName;
-  document.getElementById("current-player-pokemon").src = `/img/pokemon/${currentTurnPokemonName}.png`;
+  document.getElementById("current-player-pokemon").src = `/img/pokemon/back/${battle.currentPlayerTurn.pokemon.pokemonName}.png`;
 
+  document.getElementById("target-player-pokemon").src = `/img/pokemon/${battle.targetPlayer.pokemon.pokemonName}.png`;
 }
