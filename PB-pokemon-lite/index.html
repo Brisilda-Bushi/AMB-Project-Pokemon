@@ -13,16 +13,19 @@
 
   <title>Pokemon Battle</title>
 
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="index.js"></script>
-  <script src="js/game.js"></script>
-
   <!-- snes css -->
   <link href="css/nes.min.css" rel="stylesheet" />
 
   <!-- Press Start 2P font -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- our css -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- our scripts -->
+  <script src="index.js"></script>
+  <script src="js/game.js"></script>
 </head>
 
 <body onload="onInit()">
@@ -45,7 +48,10 @@
 
       <!-- battle screen -->
       <div id="battle" class="battle" style="display:none">
-
+        <div class="nes-container is-dark with-title battle-log">
+          <p class="title">Battle log</p>
+          <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+        </div>
       </div>
 
       <!-- gameover -->

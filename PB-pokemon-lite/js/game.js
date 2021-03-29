@@ -1,6 +1,6 @@
 class Battle {
   constructor() {
-    this.turn = 0;
+    this.turn = 1;
     this.currentPlayerTurn;
     this.players = [];
   }
@@ -29,7 +29,7 @@ const pokemonApi = "https://pokeapi.co/api/v2/pokemon/";
 var currentGamestate;
 var player1;
 var player2;
-var currentPlayerToChoosePokemon;
+var battle;
 
 // Game-flow functions
 // Initialize the game, set gamestate to intro
@@ -41,13 +41,12 @@ function onInit() {
 // Start the game and set gamestate to choose
 function onStart() {
   initChoose();
-  currentGamestate = gamestate.CHOOSE;
   setActiveView(currentGamestate);
 }
 
 // Start the battle
 function onStartBattle() {
-  currentGamestate = gamestate.BATTLE;
+  initBattle();
   setActiveView(currentGamestate);
 }
 
@@ -75,7 +74,6 @@ function initGame() {
   currentGamestate = gamestate.INTRO;
   player1 = new Player(1);
   player2 = new Player(2);
-  currentPlayerToChoosePokemon = {};
 }
 
 // Initializing choose screen
@@ -89,6 +87,17 @@ function initChoose() {
   src="/img/pokemon/${pokemon.pokemonName}.png"></button>`;
   })
   document.getElementById("choose-pokemon-list").innerHTML = pokemonHtmlButton;
+
+  currentGamestate = gamestate.CHOOSE;
+}
+
+// Initializing battle screen
+function initBattle() {
+  battle = new Battle();
+  battle.players.push(player1);
+  battle.players.push(player2);
+  battle.currentPlayerTurn = player1;
+  currentGamestate = gamestate.BATTLE;
 }
 
 // Function for choosing pokemon for p1 & p2

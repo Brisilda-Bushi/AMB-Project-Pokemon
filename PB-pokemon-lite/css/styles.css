@@ -79,6 +79,11 @@
   text-align: center;
 }
 
+.battle .battle-log {
+  position: absolute;
+  bottom: 0px;
+}
+
 /* GAMEOVER */
 .gameover {
   background-color: burlywood;
