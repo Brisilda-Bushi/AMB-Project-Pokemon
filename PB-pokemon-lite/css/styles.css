@@ -23,13 +23,19 @@
   transform: translateX(50%);
 }
 
-/* INTRO */
-.intro {
-  background-image: url("/img/intro-no-loop-compressed.gif");
+.intro,
+.choose,
+.battle,
+.gameover {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
   text-align: center;
+}
+
+/* INTRO */
+.intro {
+  background-image: url("/img/intro-no-loop-compressed.gif");
 }
 
 .intro .title {
@@ -57,10 +63,6 @@
 /* CHOOSE */
 .choose {
   background-image: url("/img/background-hero.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  text-align: center;
 }
 
 .choose .btn-start {
@@ -73,10 +75,6 @@
 /* BATTLE */
 .battle {
   background-image: url("/img/background-forest.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  text-align: center;
 }
 
 .battle .battle-log {
@@ -94,13 +92,12 @@
 
 /* GAMEOVER */
 .gameover {
-  background-color: burlywood;
-  height: 100%;
-  text-align: center;
+  background-image: url("/img/YIdb.gif");
+  background-position: center;
 }
 
 .gameover .title {
-  padding-top: 150px;
+  padding-top: 20px;
   display: block;
   font-size: 50px;
   color: brown;
@@ -109,6 +106,6 @@
 .gameover .btn-playagain {
   position: absolute;
   display: block;
-  bottom: 40%;
+  bottom: 70%;
   font-size: 20px;
 }
