@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Battle</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/game.js"></script>
+</head>
+
+<body onload="onInit()">
+  <div class="container-fluid">
+
+    <!-- intro -->
+    <div id="intro">
+      <button type="button" class="btn btn-primary" onclick="onStart()">Start Game</button>
+    </div>
+
+    <!-- choose pokemon -->
+    <div id="choose">
+      <button type="button" class="btn btn-primary" onclick="onStartBattle()">Start Battle</button>
+    </div>
+
+    <!-- battle screen -->
+    <div id="battle">
+
+    </div>
+
+    <!-- gameover -->
+    <div id="gameover">
+      <button type="button" class="btn btn-primary" onclick="onPlayAgain()">Play again</button>
+    </div>
+
+  </div>
+</body>
+
+</html>
