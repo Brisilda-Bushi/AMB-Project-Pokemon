@@ -25,6 +25,10 @@ const gamestate = {
 // API pokemon image
 const pokemonApi = "https://pokeapi.co/api/v2/pokemon/";
 
+// Intro animation
+let introAnimationGif = new Image();
+introAnimationGif.src = "/img/intro-no-loop-compressed.gif";
+
 // Game variable
 let currentGamestate;
 let player1;
@@ -67,6 +71,9 @@ function setActiveView(currentGamestate) {
       document.getElementById(gamestate[state]).style.display = "none";
     }
     console.log("Set active view: " + currentGamestate);
+
+    // add random number, so that the image will always be reloaded
+    document.getElementById("intro").style.backgroundImage = `url(${introAnimationGif.src+"?"+Math.random()})`;
   }
 }
 
