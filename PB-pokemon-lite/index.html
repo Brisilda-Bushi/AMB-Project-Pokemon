@@ -5,32 +5,55 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="icon" type="image/png" href="favicon.ico">
+
   <title>Pokemon Battle</title>
+
   <link rel="stylesheet" href="css/styles.css">
+  <script src="index.js"></script>
   <script src="js/game.js"></script>
+
+  <!-- snes css -->
+  <link href="css/nes.min.css" rel="stylesheet" />
+
+  <!-- Press Start 2P font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body onload="onInit()">
-  <div class="container-fluid">
+  <div class="container">
+    <div class="container-game">
+      <!-- intro -->
+      <div id="intro" class="intro" style="display:none">
+        <span class="title">Pokemon Lite!</span>
+        <button type="button" class="nes-btn is-success movein center-abs" onclick="onStart()">Start Game</button>
+      </div>
 
-    <!-- intro -->
-    <div id="intro">
-      <button type="button" class="btn btn-primary" onclick="onStart()">Start Game</button>
-    </div>
+      <!-- choose pokemon -->
+      <div id="choose" class="choose" style="display:none">
+        <div>
+          <span id="choose-player-name">Player 1</span>
+          <span>Choose your pokemon</span>
+          <div id="choose-pokemon-list"></div>
+        </div>
+      </div>
 
-    <!-- choose pokemon -->
-    <div id="choose">
-      <button type="button" class="btn btn-primary" onclick="onStartBattle()">Start Battle</button>
-    </div>
+      <!-- battle screen -->
+      <div id="battle" class="battle" style="display:none">
 
-    <!-- battle screen -->
-    <div id="battle">
+      </div>
 
-    </div>
-
-    <!-- gameover -->
-    <div id="gameover">
-      <button type="button" class="btn btn-primary" onclick="onPlayAgain()">Play again</button>
+      <!-- gameover -->
+      <div id="gameover" class="gameover" style="display:none">
+        <span class="title">Game over</span>
+        <button type="button" class="nes-btn is-primary btn-playagain center-abs" onclick="onPlayAgain()">Play
+          again</button>
+      </div>
     </div>
 
   </div>

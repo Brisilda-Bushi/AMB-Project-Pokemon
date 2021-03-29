@@ -1,0 +1,101 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
+  font-style: normal;
+  font-weight: 400;
+  overflow: auto;
+}
+
+.container-game {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.center-abs {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* INTRO */
+.intro {
+  background-image: url("/img/intro-no-loop-compressed.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+}
+
+.intro .title {
+  padding-top: 80px;
+  display: block;
+  font-size: 30px;
+}
+
+.intro .movein {
+  position: absolute;
+  display: block;
+  font-size: 20px;
+  animation: movein 5s ease-out forwards;
+}
+
+@keyframes movein {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 70%;
+  }
+}
+
+/* CHOOSE */
+.choose {
+  background-image: url("/img/background-hero.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+}
+
+.choose .btn-start {
+  position: absolute;
+  display: block;
+  bottom: 2%;
+  font-size: 20px;
+}
+
+/* BATTLE */
+.battle {
+  background-image: url("/img/background-forest.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+}
+
+/* GAMEOVER */
+.gameover {
+  background-color: burlywood;
+  height: 100%;
+  text-align: center;
+}
+
+.gameover .title {
+  padding-top: 150px;
+  display: block;
+  font-size: 50px;
+  color: brown;
+}
+
+.gameover .btn-playagain {
+  position: absolute;
+  display: block;
+  bottom: 40%;
+  font-size: 20px;
+}
