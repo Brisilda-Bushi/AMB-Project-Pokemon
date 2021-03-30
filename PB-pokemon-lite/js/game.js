@@ -127,7 +127,38 @@ function clonePokemon(pokemon) {
 }
 
 function updateBattle() {
+  // update current player pokemon image
   document.getElementById("current-player-pokemon").src = `/img/pokemon/back/${battle.currentPlayer.pokemon.pokemonName}.png`;
 
+  // update current player status
+  document.getElementById("current-player-no").innerHTML = "Player " + battle.currentPlayer.no;
+  document.getElementById("current-player-pokemon-name").innerHTML = battle.currentPlayer.pokemon.pokemonName;
+  document.getElementById("current-player-pokemon-current-health").innerHTML = battle.currentPlayer.pokemon.currentHealth;
+  document.getElementById("current-player-pokemon-total-health").innerHTML = battle.currentPlayer.pokemon.totalHealth;
+  document.getElementById("current-player-pokemon-healthbar").value = battle.currentPlayer.pokemon.currentHealth;
+  document.getElementById("current-player-pokemon-healthbar").max = battle.currentPlayer.pokemon.totalHealth;
+
+  // update target player pokemon image
   document.getElementById("target-player-pokemon").src = `/img/pokemon/${battle.targetPlayer.pokemon.pokemonName}.png`;
+  document.getElementById("target-player-no").innerHTML = "Player " + battle.targetPlayer.no;
+  document.getElementById("target-player-pokemon-name").innerHTML = battle.targetPlayer.pokemon.pokemonName;
+  document.getElementById("target-player-pokemon-current-health").innerHTML = battle.targetPlayer.pokemon.currentHealth;
+  document.getElementById("target-player-pokemon-total-health").innerHTML = battle.targetPlayer.pokemon.totalHealth;
+  document.getElementById("target-player-pokemon-healthbar").value = battle.targetPlayer.pokemon.currentHealth;
+  document.getElementById("target-player-pokemon-healthbar").max = battle.targetPlayer.pokemon.totalHealth;
+
+}
+
+function battleCommand(command){
+  if(command === 'attack'){
+    // battle.currentPlayer.pokemon.attack
+  }else if(command === 'magic'){
+    // battle.currentPlayer.pokemon.attack
+  }
+
+  // swap player
+  const temp = battle.currentPlayer;
+  battle.currentPlayer = battle.targetPlayer;
+  battle.targetPlayer = temp;
+  updateBattle();
 }
