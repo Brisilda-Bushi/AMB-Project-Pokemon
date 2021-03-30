@@ -26,7 +26,9 @@ class Pokemon {
   }
 
   getMagic() {
-    this.currentMagic += Math.floor(Math.random() * 50) + 10;
+    let gainedMagic = Math.floor(Math.random() * 50) + 10;
+    this.currentMagic += gainedMagic;
+    return gainedMagic;
   }
 
 

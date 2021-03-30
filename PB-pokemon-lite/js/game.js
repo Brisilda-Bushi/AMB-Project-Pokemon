@@ -21,9 +21,6 @@ const gamestate = {
   GAMEOVER: "gameover"
 };
 
-// API pokemon image
-const pokemonApi = "https://pokeapi.co/api/v2/pokemon/";
-
 // Intro animation
 let introAnimationGif = new Image();
 introAnimationGif.src = "/img/intro-no-loop-compressed.gif";
@@ -120,11 +117,19 @@ function choosed(event) {
 }
 
 // We need to clone pokemon before sending it to battle
-// In case it died, we still have the original ^^ wink wink
+// In case it died, we wont be sorry ^^ wink wink
 function clonePokemon(pokemon) {
-  return JSON.parse(JSON.stringify(pokemon));
+  // clone object using lodash
+  let clonePokemon = _.cloneDeep(pokemon);
+
+  // recover health and magic
+  clonePokemon.currentHealth = pokemon.totalHealth;
+  clonePokemon.currentMagic = pokemon.totalMagic;
+
+  return clonePokemon;
 }
 
+// This function update the pokemon status on the html based on the object state
 function updateBattle() {
   // update current player pokemon image
   document.getElementById("current-player-pokemon").src = `/img/pokemon/back/${battle.currentPlayer.pokemon.pokemonName}.png`;
@@ -145,15 +150,15 @@ function updateBattle() {
   document.getElementById("target-player-pokemon-total-health").innerHTML = battle.targetPlayer.pokemon.totalHealth;
   document.getElementById("target-player-pokemon-healthbar").value = battle.targetPlayer.pokemon.currentHealth;
   document.getElementById("target-player-pokemon-healthbar").max = battle.targetPlayer.pokemon.totalHealth;
-
 }
 
+// Battle command function which is binded to attack and boost button
 function battleCommand(command) {
   if (battle.currentPlayer.pokemon.skillsVariety.length > 0) {
     if (command === 'attack') {
-      attack(battle.currentPlayer, battle.targetPlayer);
+      attackCommand(battle.currentPlayer, battle.targetPlayer);
     } else if (command === 'boost') {
-      getMagic(battle.currentPlayer);
+      getMagicCommand(battle.currentPlayer);
     }
 
     // swap player
@@ -162,11 +167,15 @@ function battleCommand(command) {
     battle.targetPlayer = temp;
     updateBattle();
   } else {
+    let errorMessage = `current player pokemon:${battle.currentPlayer.pokemon.pokemonName} doesnt have any skill, please initialize the pokemon correctly`;
+    alert(errorMessage);
     console.error(`current player pokemon:${battle.currentPlayer.pokemon.pokemonName} doesnt have any skill, please initialize the pokemon correctly`);
   }
+
+  battle.turn++;
 }
 
-function attack(currentPlayer, targetPlayer) {
+function attackCommand(currentPlayer, targetPlayer) {
   // Init pokemon
   const currentPokemon = currentPlayer.pokemon;
   const targetPokemon = targetPlayer.pokemon;
@@ -176,16 +185,11 @@ function attack(currentPlayer, targetPlayer) {
 
   // check if the current pokemon has enough magic point
   if (currentPokemon.currentMagic - currentPokemon.skillsVariety[skillIndex].magicConsume >= 0) {
-    targetPokemon.currentHealth -= currentPokemon.skillsVariety[skillIndex].attackPower;
-    currentPokemon.currentMagic -= currentPokemon.skillsVariety[skillIndex].magicConsume;
-
+    currentPokemon.attack(skillIndex, targetPokemon);
     let succesAttackMessage = `${currentPokemon.pokemonName} attack with ${currentPokemon.skillsVariety[skillIndex].skillName} and dealt ${currentPokemon.skillsVariety[skillIndex].attackPower} damage`;
-
-    console.log(succesAttackMessage);
     document.getElementById("battle-log").innerHTML = succesAttackMessage;
   } else {
     let failAttackMessage = `${currentPokemon.pokemonName} attack with ${currentPokemon.currentPokemon.skillsVariety[skillIndex].skillName} failed, not enough magic, required:${currentPokemon.skillsVariety[skillIndex].magicConsume}, currentMagic:${currentPokemon.currentMagic}`;
-    console.log(failAttackMessage);
     document.getElementById("battle-log").innerHTML = failAttackMessage;
   }
 
@@ -195,23 +199,31 @@ function attack(currentPlayer, targetPlayer) {
     currentGamestate = gamestate.GAMEOVER;
     setActiveView(currentGamestate);
     const winningMessage = `Player ${currentPlayer.no} ${currentPlayer.pokemon.pokemonName} win`;
-
     document.getElementById("game-over-player-win").innerHTML = winningMessage;
-    console.log(winningMessage);
   }
 }
 
-function getMagic(currentPlayer) {
+function getMagicCommand(currentPlayer) {
   const currentPokemon = currentPlayer.pokemon;
-  const generatedMagic = Math.floor(Math.random() * 50) + 10;
-  currentPokemon.currentMagic += generatedMagic;
+  const magicBeforeGaining = currentPlayer.pokemon.currentMagic;
+  const gainedMagic = currentPokemon.getMagic();
 
-  if(currentPokemon.currentMagic > currentPokemon.totalMagic){
+  let tooManyMagicMessage = "";
+
+  // check magic overflow
+  if (currentPokemon.currentMagic > currentPokemon.totalMagic) {
+    // add message in case currentMagic is overflowing the total magic
+    tooManyMagicMessage = ` Magic overflow ${magicBeforeGaining+gainedMagic-currentPokemon.totalMagic}.`;
+
+    // set currentMagic to totalMagic, currentMagic shouldnt be more than total magic
     currentPokemon.currentMagic = currentPokemon.totalMagic;
   }
 
-  let gainMagicMessage = `${currentPokemon.pokemonName} gain ${generatedMagic} magic`;
+  let gainMagicMessage = `${currentPokemon.pokemonName} gain ${gainedMagic} magic.`;
 
-  console.log(gainMagicMessage);
+  if (tooManyMagicMessage) {
+    gainMagicMessage += tooManyMagicMessage;
+  }
+
   document.getElementById("battle-log").innerHTML = gainMagicMessage;
 }
