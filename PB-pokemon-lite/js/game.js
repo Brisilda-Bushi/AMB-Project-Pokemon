@@ -181,7 +181,7 @@ function attackCommand(currentPlayer, targetPlayer) {
   const targetPokemon = targetPlayer.pokemon;
 
   // generate skill index randomly
-  const skillIndex = Math.floor(Math.random() * (battle.currentPlayer.pokemon.skillsVariety.length - 1)) + 0;
+  const skillIndex = Math.floor(Math.random() * (battle.currentPlayer.pokemon.skillsVariety.length)) + 0;
 
   // check if the current pokemon has enough magic point
   if (currentPokemon.currentMagic - currentPokemon.skillsVariety[skillIndex].magicConsume >= 0) {
