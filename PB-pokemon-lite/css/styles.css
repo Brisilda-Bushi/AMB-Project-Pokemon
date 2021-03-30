@@ -1,0 +1,119 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
+  font-style: normal;
+  font-weight: 400;
+  overflow: auto;
+}
+
+.container-game {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.center-abs {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.intro,
+.choose,
+.battle,
+.gameover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+}
+
+/* INTRO */
+.intro {
+  background-image: url("/img/intro-no-loop-compressed.gif");
+}
+
+.intro .title {
+  padding-top: 80px;
+  display: block;
+  font-size: 30px;
+}
+
+.intro .movein {
+  position: absolute;
+  display: block;
+  font-size: 20px;
+  animation: movein 5s ease-out forwards;
+}
+
+@keyframes movein {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 70%;
+  }
+}
+
+/* CHOOSE */
+.choose {
+  background-image: url("/img/background-hero.png");
+}
+
+.choose .btn-start {
+  position: absolute;
+  display: block;
+  bottom: 2%;
+  font-size: 20px;
+}
+
+/* BATTLE */
+.battle {
+  background-image: url("/img/background-forest.png");
+}
+
+.battle .battle-log {
+  position: absolute;
+  bottom: 0px;
+}
+
+#current-player-pokemon {
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  height: 200px;
+  object-fit: cover;
+}
+
+#target-player-pokemon {
+  position: absolute;
+  bottom: 65%;
+  right: 1%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* GAMEOVER */
+.gameover {
+  background-image: url("/img/YIdb.gif");
+  background-position: center;
+}
+
+.gameover .title {
+  padding-top: 20px;
+  display: block;
+  font-size: 50px;
+  color: brown;
+}
+
+.gameover .btn-playagain {
+  position: absolute;
+  display: block;
+  bottom: 70%;
+  font-size: 20px;
+}
