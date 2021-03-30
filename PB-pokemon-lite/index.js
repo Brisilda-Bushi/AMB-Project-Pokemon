@@ -99,9 +99,9 @@ let meowth = new Pokemon("Meowth", 106, 120);
 let scratch = new AttackSkill("Scratch", 15, 7);
 let bite = new AttackSkill("Bite", 35, 28);
 let darkPulse = new AttackSkill("Dark Pulse", 80, 68);
-eevee.learnAttackSkill(scratch);
-eevee.learnAttackSkill(bite);
-eevee.learnAttackSkill(darkPulse);
+meowth.learnAttackSkill(scratch);
+meowth.learnAttackSkill(bite);
+meowth.learnAttackSkill(darkPulse);
 console.log(meowth);
 
 let psyduck = new Pokemon("Psyduck", 120, 127);
