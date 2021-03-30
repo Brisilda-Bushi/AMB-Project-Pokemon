@@ -79,11 +79,13 @@
 
         </div>
 
-        <button type="button" class="nes-btn is-success" onclick="battleCommand('attack')">swap test</button>
+        <button type="button" class="nes-btn is-success" style="position: absolute;left: 38%;top: 50%;" onclick="battleCommand('attack')">Attack</button>
+
+        <button type="button" class="nes-btn is-success" style="position: absolute;left: 30%;top: 60%;" onclick="battleCommand('boost')">Get Boost</button>
 
         <div class="nes-container is-dark with-title battle-log">
           <p class="title">Battle log</p>
-          <p>Pokemons!!! have a fair fight. 3...2...1...go</p>
+          <p id="battle-log">Pokemons!!! have a fair fight. 3...2...1...go</p>
         </div>
 
       </div>
@@ -91,6 +93,7 @@
       <!-- gameover -->
       <div id="gameover" class="gameover" style="display:none">
         <span class="title">Game over</span>
+        <span id="game-over-player-win">Player X</span>
         <button type="button" class="nes-btn is-primary btn-playagain center-abs" onclick="onPlayAgain()">Play
           again</button>
       </div>

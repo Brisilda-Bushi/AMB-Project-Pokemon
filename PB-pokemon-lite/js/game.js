@@ -10,7 +10,6 @@ class Player {
   constructor(no) {
     this.no = no;
     this.pokemon;
-    this.pokemonImage;
   }
 }
 
@@ -149,16 +148,70 @@ function updateBattle() {
 
 }
 
-function battleCommand(command){
-  if(command === 'attack'){
-    // battle.currentPlayer.pokemon.attack
-  }else if(command === 'magic'){
-    // battle.currentPlayer.pokemon.attack
+function battleCommand(command) {
+  if (battle.currentPlayer.pokemon.skillsVariety.length > 0) {
+    if (command === 'attack') {
+      attack(battle.currentPlayer, battle.targetPlayer);
+    } else if (command === 'boost') {
+      getMagic(battle.currentPlayer);
+    }
+
+    // swap player
+    const temp = battle.currentPlayer;
+    battle.currentPlayer = battle.targetPlayer;
+    battle.targetPlayer = temp;
+    updateBattle();
+  } else {
+    console.error(`current player pokemon:${battle.currentPlayer.pokemon.pokemonName} doesnt have any skill, please initialize the pokemon correctly`);
+  }
+}
+
+function attack(currentPlayer, targetPlayer) {
+  // Init pokemon
+  const currentPokemon = currentPlayer.pokemon;
+  const targetPokemon = targetPlayer.pokemon;
+
+  // generate skill index randomly
+  const skillIndex = Math.floor(Math.random() * (battle.currentPlayer.pokemon.skillsVariety.length - 1)) + 0;
+
+  // check if the current pokemon has enough magic point
+  if (currentPokemon.currentMagic - currentPokemon.skillsVariety[skillIndex].magicConsume >= 0) {
+    targetPokemon.currentHealth -= currentPokemon.skillsVariety[skillIndex].attackPower;
+    currentPokemon.currentMagic -= currentPokemon.skillsVariety[skillIndex].magicConsume;
+
+    let succesAttackMessage = `${currentPokemon.pokemonName} attack with ${currentPokemon.skillsVariety[skillIndex].skillName} and dealt ${currentPokemon.skillsVariety[skillIndex].attackPower} damage`;
+
+    console.log(succesAttackMessage);
+    document.getElementById("battle-log").innerHTML = succesAttackMessage;
+  } else {
+    let failAttackMessage = `${currentPokemon.pokemonName} attack with ${currentPokemon.currentPokemon.skillsVariety[skillIndex].skillName} failed, not enough magic, required:${currentPokemon.skillsVariety[skillIndex].magicConsume}, currentMagic:${currentPokemon.currentMagic}`;
+    console.log(failAttackMessage);
+    document.getElementById("battle-log").innerHTML = failAttackMessage;
   }
 
-  // swap player
-  const temp = battle.currentPlayer;
-  battle.currentPlayer = battle.targetPlayer;
-  battle.targetPlayer = temp;
-  updateBattle();
+  // check winning condition
+  // if target pokemon health is less than 0 or equal 0 then gameover
+  if (targetPokemon.currentHealth <= 0) {
+    currentGamestate = gamestate.GAMEOVER;
+    setActiveView(currentGamestate);
+    const winningMessage = `Player ${currentPlayer.no} ${currentPlayer.pokemon.pokemonName} win`;
+
+    document.getElementById("game-over-player-win").innerHTML = winningMessage;
+    console.log(winningMessage);
+  }
+}
+
+function getMagic(currentPlayer) {
+  const currentPokemon = currentPlayer.pokemon;
+  const generatedMagic = Math.floor(Math.random() * 50) + 10;
+  currentPokemon.currentMagic += generatedMagic;
+
+  if(currentPokemon.currentMagic > currentPokemon.totalMagic){
+    currentPokemon.currentMagic = currentPokemon.totalMagic;
+  }
+
+  let gainMagicMessage = `${currentPokemon.pokemonName} gain ${generatedMagic} magic`;
+
+  console.log(gainMagicMessage);
+  document.getElementById("battle-log").innerHTML = gainMagicMessage;
 }

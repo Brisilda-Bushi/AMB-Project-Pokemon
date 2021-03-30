@@ -15,8 +15,8 @@ class Pokemon {
   attack(index, attackedPokemon) {
     attackedPokemon.currentHealth -= this.skillsVariety[index].attackPower;
     this.currentMagic -= this.skillsVariety[index].magicConsume;
-    console.log(`${this.pokemonName} launched skill ${this.skillsVariety[index].skillName} successfully!`)
-    console.log(`${attackedPokemon.pokemonName} got ${this.skillsVariety[index].attackPower} damage.`)
+    console.log(`${this.pokemonName} launched skill ${this.skillsVariety[index].skillName} successfully!`);
+    console.log(`${attackedPokemon.pokemonName} got ${this.skillsVariety[index].attackPower} damage.`);
   }
 
   showStatus() {
@@ -26,7 +26,7 @@ class Pokemon {
   }
 
   getMagic() {
-    this.totalMagic += Math.floor(Math.random() * 50) + 10;
+    this.currentMagic += Math.floor(Math.random() * 50) + 10;
   }
 
 
@@ -117,9 +117,9 @@ let vulpix = new Pokemon("Vulpix", 103, 116);
 let ember = new AttackSkill("Ember", 15, 5);
 let flameBall = new AttackSkill("Flame Ball", 50, 45);
 let flameCharge = new AttackSkill("Flame Charge", 70, 65);
-eevee.learnAttackSkill(ember);
-eevee.learnAttackSkill(flameBall);
-eevee.learnAttackSkill(flameCharge);
+vulpix.learnAttackSkill(ember);
+vulpix.learnAttackSkill(flameBall);
+vulpix.learnAttackSkill(flameCharge);
 console.log(vulpix);
 
 let cubone = new Pokemon("Cubone", 103, 116);
