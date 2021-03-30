@@ -51,6 +51,15 @@
 
         <div class="current-player-card">
           <img id="current-player-pokemon">
+          <div id="current-player-pokemon-status" class="nes-container"
+            style="background-color:beige; width:220px; position:absolute; right:2%; top:50%">
+            <span id="current-player-no">P1</span>
+            <span id="current-player-pokemon-name">pika</span>
+            <progress id="current-player-pokemon-healthbar" class="nes-progress is-success" value="90" max="100"
+              style="height:20px"></progress>
+            <span id="current-player-pokemon-current-health">100</span> /
+            <span id="current-player-pokemon-total-health">100</span>
+          </div>
           <div id="current-player-pokemon-menu">
 
           </div>
@@ -58,13 +67,25 @@
 
         <div id="target-player-card">
           <img id="target-player-pokemon">
-          <div id="target-player-pokemon-menu">
+          <div id="target-player-pokemon-status" class="nes-container"
+            style="background-color:beige; width:220px; position:absolute; left:2%; top:5%">
+            <span id="target-player-no">P1</span>
+            <span id="target-player-pokemon-name">pika</span>
+            <progress id="target-player-pokemon-healthbar" class="nes-progress is-success" value="90" max="100"
+              style="height:20px"></progress>
+            <span id="target-player-pokemon-current-health">100</span> /
+            <span id="target-player-pokemon-total-health">100</span>
+          </div>
+
         </div>
+
+        <button type="button" class="nes-btn is-success" onclick="battleCommand('attack')">swap test</button>
 
         <div class="nes-container is-dark with-title battle-log">
           <p class="title">Battle log</p>
           <p>Pokemons!!! have a fair fight. 3...2...1...go</p>
         </div>
+
       </div>
 
       <!-- gameover -->
@@ -73,9 +94,8 @@
         <button type="button" class="nes-btn is-primary btn-playagain center-abs" onclick="onPlayAgain()">Play
           again</button>
       </div>
-    </div>
 
-  </div>
+    </div>
 </body>
 
 </html>

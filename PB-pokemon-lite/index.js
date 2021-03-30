@@ -4,6 +4,8 @@ class Pokemon {
     this.pokemonName = pokemonName;
     this.totalHealth = totalHealth;
     this.totalMagic = totalMagic;
+    this.currentHealth = this.totalHealth;
+    this.currentMagic = this.totalMagic;
   }
 
   learnAttackSkill(skill) {
@@ -11,16 +13,16 @@ class Pokemon {
   }
 
   attack(index, attackedPokemon) {
-    attackedPokemon.totalHealth -= this.skillsVariety[index].attackPower;
-    this.totalMagic -= this.skillsVariety[index].magicConsume;
+    attackedPokemon.currentHealth -= this.skillsVariety[index].attackPower;
+    this.currentMagic -= this.skillsVariety[index].magicConsume;
     console.log(`${this.pokemonName} launched skill ${this.skillsVariety[index].skillName} successfully!`)
     console.log(`${attackedPokemon.pokemonName} got ${this.skillsVariety[index].attackPower} damage.`)
   }
 
   showStatus() {
     console.log(`${this.pokemonName} status: 
-     \t - health: ${this.totalHealth}
-     \t - magic: ${this.totalMagic}`);
+     \t - health: ${this.currentHealth} / ${this.totalHealth}
+     \t - magic: ${this.currentMagic} / ${this.totalMagic}`);
   }
 
   getMagic() {
