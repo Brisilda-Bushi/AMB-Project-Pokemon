@@ -70,11 +70,11 @@ function setActiveView(currentGamestate) {
     } else {
       document.getElementById(gamestate[state]).style.display = "none";
     }
-    console.log("Set active view: " + currentGamestate);
-
-    // add random number, so that the image will always be reloaded
-    document.getElementById("intro").style.backgroundImage = `url(${introAnimationGif.src+"?"+Math.random()})`;
   }
+  console.log("Set active view: " + currentGamestate);
+
+  // add random number, so that the image will always be reloaded
+  document.getElementById("intro").style.backgroundImage = `url(${introAnimationGif.src+"?"+Math.random()})`;
 }
 
 // Initialize game state
