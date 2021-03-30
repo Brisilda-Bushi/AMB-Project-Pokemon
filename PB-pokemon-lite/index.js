@@ -144,7 +144,3 @@ console.log(cubone);
 // pikachu.getMagic();
 // pikachu.attack(0, bulbasaur);
 // bulbasaur.attack(0, pikachu);
-
-
-
-
