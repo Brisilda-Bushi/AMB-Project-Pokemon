@@ -2,13 +2,24 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  user-select:none;
+  user-select: none;
+}
+.container,
+.container-game {
+  background-color: black;
+}
+
+.gameover .btn-playagain,
+.gameover .title,
+.choose .btn-start,
+.intro .movein,
+.intro .title {
+  display: block;
 }
 
 .container {
   width: 100vw;
   height: 100vh;
-  background-color: black;
   box-sizing: border-box;
   font-family: "Press Start 2P", cursive;
   font-style: normal;
@@ -20,7 +31,6 @@
   position: relative;
   width: 600px;
   height: 600px;
-  background-color: black;
   margin: 0 auto;
   margin-top: 100px;
 }
@@ -48,14 +58,17 @@
 
 .intro .title {
   padding-top: 80px;
-  display: block;
   font-size: 30px;
+}
+
+.intro .movein,
+.choose .btn-start,
+.gameover .btn-playagain {
+  font-size: 20px;
 }
 
 .intro .movein {
   position: absolute;
-  display: block;
-  font-size: 20px;
   animation: movein 5s ease-out forwards;
 }
 
@@ -75,14 +88,12 @@
 
 .choose .btn-start {
   position: absolute;
-  display: block;
   bottom: 2%;
-  font-size: 20px;
 }
 
 .choose .player2-offset {
-  position:absolute;
-  top:50%;
+  position: absolute;
+  top: 50%;
 }
 
 /* BATTLE */
@@ -96,32 +107,40 @@
   width: 99%;
   height: 180px;
 }
-.paragraph-battle-log{
+.paragraph-battle-log {
   width: 50%;
 }
-.btn{
-  position: absolute; 
+.btn {
+  position: absolute;
   width: 200px;
 }
-.attack-btn{
-  right: 5%; 
+.attack-btn {
+  right: 5%;
   bottom: 50%;
 }
-.boost-btn{
-  right: 5%; 
+.boost-btn {
+  right: 5%;
   bottom: 20%;
 }
 .current-player-name-number {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.current-player-name-number,
+.target-player-name-number {
   font-size: 12px;
 }
-.current-player-pokemon-status {
+
+.current-player-pokemon-status,
+.target-player-pokemon-status {
   background-color: beige;
   width: 50%;
   height: 120px;
   position: absolute;
+}
+
+.current-player-pokemon-status {
   right: 2%;
   bottom: 185px;
   padding: 15px;
@@ -131,7 +150,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 12px;
 }
 
 .current-player-stats {
@@ -161,10 +179,6 @@
   flex-direction: row;
 }
 .target-player-pokemon-status {
-  background-color: beige;
-  width: 50%;
-  height: 120px;
-  position: absolute;
   left: 2%;
   top: 2%;
   padding: 15px;
@@ -203,14 +217,11 @@
 
 .gameover .title {
   padding-top: 20px;
-  display: block;
   font-size: 50px;
   color: brown;
 }
 
 .gameover .btn-playagain {
   position: absolute;
-  display: block;
   bottom: 70%;
-  font-size: 20px;
 }
