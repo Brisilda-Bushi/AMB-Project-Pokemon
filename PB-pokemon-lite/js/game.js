@@ -86,13 +86,6 @@ function showBattle() {
   setActiveView(currentGamestate);
 }
 
-// After gameover, this function can be called to restart the game
-// reset the gamestate to intro and reset other variables
-function showGameover() {
-  initGame();
-  setActiveView(currentGamestate);
-}
-
 // function to set the view based on gamestate
 function setActiveView(currentGamestate) {
   for (let state in gamestate) {
