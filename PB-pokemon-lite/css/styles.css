@@ -40,6 +40,7 @@
   transform: translateX(50%);
 }
 
+.prelude,
 .intro,
 .choose,
 .battle,
@@ -49,6 +50,17 @@
   height: 100%;
   text-align: center;
   display: none;
+}
+
+/* PRELUDE */
+.prelude {
+  background-color: black;
+  display: block;
+}
+
+.prelude-btn {
+  top:40%;
+  left:30%;
 }
 
 /* INTRO */
@@ -277,7 +289,7 @@
 
 /* GAMEOVER */
 .gameover {
-  background-image: url("/img/YIdb.gif");
+  background-image: url("/img/gameover-compressed.gif");
   background-position: center;
 }
 
