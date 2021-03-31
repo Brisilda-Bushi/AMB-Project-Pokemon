@@ -107,21 +107,33 @@
   width: 99%;
   height: 180px;
 }
+
 .paragraph-battle-log {
   width: 50%;
 }
+
 .btn {
   position: absolute;
   width: 200px;
 }
+
 .attack-btn {
   right: 5%;
   bottom: 50%;
+  display: none;
 }
+
 .boost-btn {
   right: 5%;
   bottom: 20%;
+  display: none;
 }
+
+.fight-btn {
+  right: 5%;
+  bottom: 50%;
+}
+
 .current-player-name-number {
   display: flex;
   flex-direction: row;
@@ -138,6 +150,7 @@
   width: 50%;
   height: 120px;
   position: absolute;
+  display: none;
 }
 
 .current-player-pokemon-status {
@@ -152,13 +165,16 @@
   justify-content: space-between;
 }
 
-.current-player-stats {
+.current-player-stats,
+.target-player-stats {
   display: flex;
   flex-direction: row;
 }
+
 .current-player-health-stats,
 .current-player-magic-stats,
-.target-player-health-stats {
+.target-player-health-stats,
+.target-player-magic-stats {
   width: 50%;
   padding: 10px;
 }
@@ -174,25 +190,19 @@
   font-size: 10px;
 }
 
-.target-player-stats {
-  display: flex;
-  flex-direction: row;
-}
 .target-player-pokemon-status {
   left: 2%;
   top: 2%;
   padding: 15px;
 }
-.target-player-magic-stats {
-  width: 50%;
-  padding: 10px;
-}
+
 .current-player-pokemon-healthbar,
 .current-player-pokemon-magicbar,
 .target-player-pokemon-healthbar,
 .target-player-pokemon-magicbar {
   height: 20px;
 }
+
 #current-player-pokemon {
   position: absolute;
   top: 35%;
@@ -207,6 +217,62 @@
   right: 1%;
   height: 250px;
   object-fit: cover;
+}
+
+.animation-damage {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.animation-attack {
+  animation: attack 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes attack {
+  10%,
+  90% {
+    transform: translate3d(2px, -2px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(4px, -4px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(6px, -6px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(8px, -8px, 0);
+  }
 }
 
 /* GAMEOVER */

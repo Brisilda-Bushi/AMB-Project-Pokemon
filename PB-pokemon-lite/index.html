@@ -31,13 +31,13 @@
   <script src="js/game.js"></script>
 </head>
 
-<body onload="onInit()">
+<body onload="showIntro()">
   <div class="container">
     <div class="container-game">
       <!-- intro -->
       <div id="intro" class="intro">
         <span class="title">Pokemon Lite!</span>
-        <button type="button" class="nes-btn is-success movein center-abs" onclick="onStartGame()">Start Game</button>
+        <button type="button" class="nes-btn is-success movein center-abs" onclick="showChoose()">Start Game</button>
       </div>
 
       <!-- choose pokemon -->
@@ -82,10 +82,6 @@
 
           </div>
 
-          <div id="current-player-pokemon-menu">
-
-          </div>
-
         </div>
 
         <div id="target-player-card">
@@ -122,11 +118,13 @@
           <p class="title">Battle log</p>
           <p id="battle-log" class="paragraph-battle-log">Pokemons!!! have a fair fight. 3...2...1...go</p>
 
-          <button type="button" class="nes-btn is-error btn attack-btn"
+          <button id="attack-btn" type="button" class="nes-btn is-error btn attack-btn"
             onclick="battleCommand('attack')">Attack</button>
 
-          <button type="button" class="nes-btn is-primary btn boost-btn" onclick="battleCommand('boost')">Get
+          <button id="boost-btn" type="button" class="nes-btn is-primary btn boost-btn" onclick="battleCommand('boost')">Get
             Boost</button>
+
+          <button id="fight-btn" type="button" class="nes-btn is-warning btn fight-btn" onclick="startBattle()">Fight!!</button>
         </div>
 
       </div>
@@ -135,9 +133,15 @@
       <div id="gameover" class="gameover">
         <span class="title">Game over</span>
         <span id="game-over-player-win">Player X</span>
-        <button type="button" class="nes-btn is-primary btn-playagain center-abs" onclick="onPlayAgain()">Play
+        <button type="button" class="nes-btn is-primary btn-playagain center-abs" onclick="showIntro()">Play
           again</button>
       </div>
+
+      <!-- audio player -->
+      <audio id="audio" controls hidden>
+        <source src="audio/battle1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
     </div>
 </body>
