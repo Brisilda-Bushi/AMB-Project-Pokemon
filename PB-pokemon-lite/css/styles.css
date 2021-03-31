@@ -114,17 +114,17 @@
 
 #current-player-pokemon {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 1%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
 #target-player-pokemon {
   position: absolute;
-  bottom: 65%;
+  bottom: 55%;
   right: 1%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
