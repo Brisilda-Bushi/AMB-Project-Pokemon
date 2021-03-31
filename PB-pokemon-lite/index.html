@@ -35,13 +35,13 @@
   <div class="container">
     <div class="container-game">
       <!-- intro -->
-      <div id="intro" class="intro" style="display:none">
+      <div id="intro" class="intro">
         <span class="title">Pokemon Lite!</span>
         <button type="button" class="nes-btn is-success movein center-abs" onclick="onStartGame()">Start Game</button>
       </div>
 
       <!-- choose pokemon -->
-      <div id="choose" class="choose" style="display:none">
+      <div id="choose" class="choose">
         <div>
           <span id="choose-player-name">Player 1</span>
           <span>Choose your pokemon</span>
@@ -50,75 +50,89 @@
       </div>
 
       <!-- battle screen -->
-      <div id="battle" class="battle" style="display:none">
+      <div id="battle" class="battle">
 
         <div class="current-player-card">
           <img id="current-player-pokemon">
-          <div id="current-player-pokemon-status" class="nes-container"
-            style="background-color:beige; width: 50%; height: 120px; position:absolute; right: 2%; bottom: 185px; padding: 15px;">
+          <div id="current-player-pokemon-status" class="nes-container current-player-pokemon-status">
             <div class="current-player-name-number">
-            <span id="current-player-pokemon-name">pika</span>
-            <span id="current-player-no">P1</span>
+              <span id="current-player-pokemon-name">pika</span>
+              <span id="current-player-no">P1</span>
             </div>
+
             <div class="current-player-stats">
-            <div class="current-player-health-stats" style="width: 50%; padding: 10px;">
-            <progress id="current-player-pokemon-healthbar" class="nes-progress is-success" value="90" max="100"
-              style="height:20px;"></progress>
-            <span id="current-player-pokemon-current-health" style="font-size: 10px;">100</span> /
-            <span id="current-player-pokemon-total-health" style="font-size: 10px;">100</span>
+              <div class="current-player-health-stats">
+                <progress id="current-player-pokemon-healthbar"
+                  class="nes-progress is-success current-player-pokemon-healthbar" value="90" max="100"></progress>
+                <span id="current-player-pokemon-current-health"
+                  class="current-player-pokemon-current-health">100</span> /
+                <span id="current-player-pokemon-total-health" class="current-player-pokemon-total-health">100</span>
+              </div>
+
+              <div class="current-player-magic-stats">
+                <progress id="current-player-pokemon-magicbar"
+                  class="nes-progress is-primary current-player-pokemon-magicbar" value="90" max="100"></progress>
+                <span id="current-player-pokemon-current-magic" class="current-player-pokemon-current-magic">100</span>
+                /
+                <span id="current-player-pokemon-total-magic" class="current-player-pokemon-total-magic">100</span>
+
+              </div>
+
+            </div>
+
           </div>
-            <div class="current-player-magic-stats" style="width: 50%; padding: 10px;">
-            <progress id="current-player-pokemon-magicbar" class="nes-progress is-primary" value="90" max="100"
-              style="height:20px"></progress>
-            <span id="current-player-pokemon-current-magic" style="font-size: 10px;">100</span> /
-            <span id="current-player-pokemon-total-magic" style="font-size: 10px;">100</span>
-          </div>
-        </div>
-          </div>
+
           <div id="current-player-pokemon-menu">
 
           </div>
+
         </div>
 
         <div id="target-player-card">
           <img id="target-player-pokemon">
-          <div id="target-player-pokemon-status" class="nes-container"
-            style="background-color:beige; width:50%; height: 120px; position:absolute; left:2%; top:2%; padding: 15px;">
+          <div id="target-player-pokemon-status" class="nes-container target-player-pokemon-status">
             <div class="target-player-name-number">
-            <span id="target-player-pokemon-name">pika</span>
-            <span id="target-player-no">P1</span>
-          </div>
-          <div class="target-player-stats">
-            <div class="target-player-health-stats" style="width: 50%; padding: 10px;">
-            <progress id="target-player-pokemon-healthbar" class="nes-progress is-success" value="90" max="100"
-              style="height:20px"></progress>
-            <span id="target-player-pokemon-current-health" style="font-size: 10px;">100</span> /
-            <span id="target-player-pokemon-total-health" style="font-size: 10px;">100</span>
+              <span id="target-player-pokemon-name">pika</span>
+              <span id="target-player-no">P1</span>
             </div>
-            <div class="target-player-magic-stats" style="width: 50%; padding: 10px;">
-            <progress id="target-player-pokemon-magicbar" class="nes-progress is-primary" value="90" max="100"
-              style="height:20px"></progress>
-            <span id="target-player-pokemon-current-magic" style="font-size: 10px;">100</span> /
-            <span id="target-player-pokemon-total-magic" style="font-size: 10px;">100</span>
-          </div>
-          </div>
+
+            <div class="target-player-stats">
+              <div class="target-player-health-stats">
+                <progress id="target-player-pokemon-healthbar"
+                  class="nes-progress is-success target-player-pokemon-healthbar" value="90" max="100"></progress>
+                <span id="target-player-pokemon-current-health" class="target-player-pokemon-current-health">100</span>
+                /
+                <span id="target-player-pokemon-total-health" class="target-player-pokemon-total-health">100</span>
+              </div>
+
+              <div class="target-player-magic-stats">
+                <progress id="target-player-pokemon-magicbar"
+                  class="nes-progress is-primary target-player-pokemon-magicbar" value="90" max="100"></progress>
+                <span id="target-player-pokemon-current-magic" class="target-player-pokemon-current-magic">100</span> /
+                <span id="target-player-pokemon-total-magic" class="target-player-pokemon-total-magic">100</span>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
 
-        <div class="nes-container is-dark with-title battle-log" style=" width:99%; height: 180px;">
+        <div class="nes-container is-dark with-title battle-log">
           <p class="title">Battle log</p>
-          <p id="battle-log" style="width: 50%; ">Pokemons!!! have a fair fight. 3...2...1...go</p>
+          <p id="battle-log" class="paragraph-battle-log">Pokemons!!! have a fair fight. 3...2...1...go</p>
 
-          <button type="button" class="nes-btn is-error" style="position: absolute; width: 200px; right: 5%; bottom: 50%;" onclick="battleCommand('attack')">Attack</button>
+          <button type="button" class="nes-btn is-error btn attack-btn"
+            onclick="battleCommand('attack')">Attack</button>
 
-          <button type="button" class="nes-btn is-primary" style="position: absolute; width: 200px; right: 5%; bottom: 20%;" onclick="battleCommand('boost')">Get Boost</button>
+          <button type="button" class="nes-btn is-primary btn boost-btn" onclick="battleCommand('boost')">Get
+            Boost</button>
         </div>
 
       </div>
 
       <!-- gameover -->
-      <div id="gameover" class="gameover" style="display:none">
+      <div id="gameover" class="gameover">
         <span class="title">Game over</span>
         <span id="game-over-player-win">Player X</span>
         <button type="button" class="nes-btn is-primary btn-playagain center-abs" onclick="onPlayAgain()">Play
