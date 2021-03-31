@@ -1,3 +1,9 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -80,6 +86,30 @@
 .battle .battle-log {
   position: absolute;
   bottom: 0px;
+}
+
+.current-player-name-number {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.target-player-name-number {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.current-player-stats{
+  display: flex;
+  flex-direction: row;
+}
+
+.target-player-stats{
+  display: flex;
+  flex-direction: row;
 }
 
 #current-player-pokemon {

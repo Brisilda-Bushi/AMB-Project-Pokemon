@@ -55,13 +55,25 @@
         <div class="current-player-card">
           <img id="current-player-pokemon">
           <div id="current-player-pokemon-status" class="nes-container"
-            style="background-color:beige; width:220px; position:absolute; right:2%; top:50%">
-            <span id="current-player-no">P1</span>
+            style="background-color:beige; width: 50%; height: 120px; position:absolute; right: 2%; bottom: 185px; padding: 15px;">
+            <div class="current-player-name-number">
             <span id="current-player-pokemon-name">pika</span>
+            <span id="current-player-no">P1</span>
+            </div>
+            <div class="current-player-stats">
+            <div class="current-player-health-stats" style="width: 50%; padding: 10px;">
             <progress id="current-player-pokemon-healthbar" class="nes-progress is-success" value="90" max="100"
+              style="height:20px;"></progress>
+            <span id="current-player-pokemon-current-health" style="font-size: 10px;">100</span> /
+            <span id="current-player-pokemon-total-health" style="font-size: 10px;">100</span>
+          </div>
+            <div class="current-player-magic-stats" style="width: 50%; padding: 10px;">
+            <progress id="current-player-pokemon-magicbar" class="nes-progress is-primary" value="90" max="100"
               style="height:20px"></progress>
-            <span id="current-player-pokemon-current-health">100</span> /
-            <span id="current-player-pokemon-total-health">100</span>
+            <span id="current-player-pokemon-current-magic" style="font-size: 10px;">100</span> /
+            <span id="current-player-pokemon-total-magic" style="font-size: 10px;">100</span>
+          </div>
+        </div>
           </div>
           <div id="current-player-pokemon-menu">
 
@@ -71,24 +83,36 @@
         <div id="target-player-card">
           <img id="target-player-pokemon">
           <div id="target-player-pokemon-status" class="nes-container"
-            style="background-color:beige; width:220px; position:absolute; left:2%; top:5%">
-            <span id="target-player-no">P1</span>
+            style="background-color:beige; width:50%; height: 120px; position:absolute; left:2%; top:2%; padding: 15px;">
+            <div class="target-player-name-number">
             <span id="target-player-pokemon-name">pika</span>
+            <span id="target-player-no">P1</span>
+          </div>
+          <div class="target-player-stats">
+            <div class="target-player-health-stats" style="width: 50%; padding: 10px;">
             <progress id="target-player-pokemon-healthbar" class="nes-progress is-success" value="90" max="100"
               style="height:20px"></progress>
-            <span id="target-player-pokemon-current-health">100</span> /
-            <span id="target-player-pokemon-total-health">100</span>
+            <span id="target-player-pokemon-current-health" style="font-size: 10px;">100</span> /
+            <span id="target-player-pokemon-total-health" style="font-size: 10px;">100</span>
+            </div>
+            <div class="target-player-magic-stats" style="width: 50%; padding: 10px;">
+            <progress id="target-player-pokemon-magicbar" class="nes-progress is-primary" value="90" max="100"
+              style="height:20px"></progress>
+            <span id="target-player-pokemon-current-magic" style="font-size: 10px;">100</span> /
+            <span id="target-player-pokemon-total-magic" style="font-size: 10px;">100</span>
+          </div>
+          </div>
           </div>
 
         </div>
 
-        <button type="button" class="nes-btn is-success" style="position: absolute;left: 38%;top: 50%;" onclick="battleCommand('attack')">Attack</button>
-
-        <button type="button" class="nes-btn is-success" style="position: absolute;left: 30%;top: 60%;" onclick="battleCommand('boost')">Get Boost</button>
-
-        <div class="nes-container is-dark with-title battle-log">
+        <div class="nes-container is-dark with-title battle-log" style=" width:99%; height: 180px;">
           <p class="title">Battle log</p>
-          <p id="battle-log">Pokemons!!! have a fair fight. 3...2...1...go</p>
+          <p id="battle-log" style="width: 50%; ">Pokemons!!! have a fair fight. 3...2...1...go</p>
+
+          <button type="button" class="nes-btn is-error" style="position: absolute; width: 200px; right: 5%; bottom: 50%;" onclick="battleCommand('attack')">Attack</button>
+
+          <button type="button" class="nes-btn is-primary" style="position: absolute; width: 200px; right: 5%; bottom: 20%;" onclick="battleCommand('boost')">Get Boost</button>
         </div>
 
       </div>
