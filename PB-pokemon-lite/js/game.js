@@ -141,6 +141,11 @@ function updateBattle() {
   document.getElementById("current-player-pokemon-total-health").innerHTML = battle.currentPlayer.pokemon.totalHealth;
   document.getElementById("current-player-pokemon-healthbar").value = battle.currentPlayer.pokemon.currentHealth;
   document.getElementById("current-player-pokemon-healthbar").max = battle.currentPlayer.pokemon.totalHealth;
+  document.getElementById("current-player-pokemon-current-magic").innerHTML = battle.currentPlayer.pokemon.currentMagic;
+  document.getElementById("current-player-pokemon-total-magic").innerHTML = battle.currentPlayer.pokemon.totalMagic;
+  document.getElementById("current-player-pokemon-magicbar").value = battle.currentPlayer.pokemon.currentMagic;
+  document.getElementById("current-player-pokemon-magicbar").max = battle.currentPlayer.pokemon.totalMagic;
+
 
   // update target player pokemon image
   document.getElementById("target-player-pokemon").src = `/img/pokemon/${battle.targetPlayer.pokemon.pokemonName}.png`;
@@ -150,6 +155,10 @@ function updateBattle() {
   document.getElementById("target-player-pokemon-total-health").innerHTML = battle.targetPlayer.pokemon.totalHealth;
   document.getElementById("target-player-pokemon-healthbar").value = battle.targetPlayer.pokemon.currentHealth;
   document.getElementById("target-player-pokemon-healthbar").max = battle.targetPlayer.pokemon.totalHealth;
+  document.getElementById("target-player-pokemon-current-magic").innerHTML = battle.targetPlayer.pokemon.currentMagic;
+  document.getElementById("target-player-pokemon-total-magic").innerHTML = battle.targetPlayer.pokemon.totalMagic;
+  document.getElementById("target-player-pokemon-magicbar").value = battle.targetPlayer.pokemon.currentMagic;
+  document.getElementById("target-player-pokemon-magicbar").max = battle.targetPlayer.pokemon.totalMagic;
 }
 
 // Battle command function which is binded to attack and boost button
