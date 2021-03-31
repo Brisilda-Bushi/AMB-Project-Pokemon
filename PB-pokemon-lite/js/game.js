@@ -79,6 +79,8 @@ function initGame() {
   player1 = new Player(1);
   player2 = new Player(2);
   document.getElementById("choose-player-name").innerHTML = "Player 1";
+  document.getElementById("choose-pokemon-container").classList.remove("player2-offset");
+  document.getElementById("battle-log").innerHTML = "Pokemons!!! have a fair fight. 3...2...1...go";
 }
 
 // Initializing choose screen
@@ -110,6 +112,7 @@ function choosed(event) {
     player1.pokemon = clonePokemon(pokemons.find(x => x.pokemonName === event.dataset.pokemon));
     currentPlayerToChoosePokemon = player2;
     document.getElementById("choose-player-name").innerHTML = "Player " + player2.no;
+    document.getElementById("choose-pokemon-container").classList.add("player2-offset");
   } else if (currentPlayerToChoosePokemon === player2) {
     player2.pokemon = clonePokemon(pokemons.find(x => x.pokemonName === event.dataset.pokemon));
     onStartBattle();
