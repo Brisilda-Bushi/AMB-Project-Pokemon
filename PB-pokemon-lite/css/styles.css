@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select:none;
 }
 
 .container {
@@ -76,6 +77,11 @@
   display: block;
   bottom: 2%;
   font-size: 20px;
+}
+
+.choose .player2-offset {
+  position:absolute;
+  top:50%;
 }
 
 /* BATTLE */
