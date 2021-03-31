@@ -171,6 +171,7 @@ function clonePokemon(pokemon) {
 function startBattle() {
   audioPlayer.playBattleTheme();
   showBattleMenu(true);
+  enableCommandButton(true);
 }
 
 // This function update the pokemon status on the html based on the object state
