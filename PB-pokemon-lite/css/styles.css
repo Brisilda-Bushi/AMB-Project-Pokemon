@@ -50,6 +50,20 @@
   height: 100%;
   text-align: center;
   display: none;
+  
+}
+
+.intro,
+.choose,
+.battle,
+.gameover {
+  opacity: 1;
+  animation: fade 2s linear;
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 /* PRELUDE */
@@ -103,9 +117,20 @@
   bottom: 2%;
 }
 
+#choose-pokemon-container {
+  padding: 15px;
+}
+
+#choose-pokemon-list {
+  padding-top: 15px;
+}
+
+/* Does it look nice to have a fade in for the 2nd player? */
 .choose .player2-offset {
   position: absolute;
   top: 50%;
+  opacity: 1;
+  animation: fade 0.5s linear;
 }
 
 /* BATTLE */
@@ -163,6 +188,8 @@
   height: 120px;
   position: absolute;
   display: none;
+  opacity: 1;
+  animation: fade 1s linear;
 }
 
 .current-player-pokemon-status {
@@ -295,11 +322,12 @@
 
 .gameover .title {
   padding-top: 20px;
+  padding-bottom: 20px ;
   font-size: 50px;
   color: brown;
 }
 
 .gameover .btn-playagain {
   position: absolute;
-  bottom: 70%;
+  top: 30%;
 }
