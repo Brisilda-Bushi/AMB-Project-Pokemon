@@ -23,7 +23,7 @@ class AudioPlayer {
     this.chooseThemes = [""]
   }
 
-  playIntroTheme(){
+  playIntroTheme() {
     this.audio.src = this.introThemes[0];
     this.audio.play();
   }
@@ -63,10 +63,14 @@ let player1;
 let player2;
 let battle;
 
+function showPrelude() {
+  audioPlayer = new AudioPlayer(document.getElementById("audio"));
+}
+
 // Game-flow functions
 // Initialize the game, set gamestate to intro
 function showIntro() {
-  audioPlayer = new AudioPlayer(document.getElementById("audio"));
+  document.getElementById("prelude").style.display = "none";
   audioPlayer.stop();
   audioPlayer.playIntroTheme();
   initGame();
@@ -83,13 +87,6 @@ function showChoose() {
 function showBattle() {
   initBattle();
   updateBattle();
-  setActiveView(currentGamestate);
-}
-
-// After gameover, this function can be called to restart the game
-// reset the gamestate to intro and reset other variables
-function showGameover() {
-  initGame();
   setActiveView(currentGamestate);
 }
 
@@ -208,6 +205,11 @@ function updateBattle() {
 
 // Battle command function which is binded to attack and boost button
 function battleCommand(command) {
+  // do nothing if the button has is-disabled class
+  if (document.getElementById("attack-btn").classList.contains("is-disabled") || document.getElementById("boost-btn").classList.contains("is-disabled")) {
+    return false;
+  }
+
   enableCommandButton(false);
   if (battle.currentPlayer.pokemon.skillsVariety.length > 0) {
     if (command === 'attack') {
