@@ -28,9 +28,9 @@ class Pokemon {
   getMagic() {
     let gainedMagic = Math.floor(Math.random() * 50) + 10;
     this.currentMagic += gainedMagic;
+    console.log(`${this.pokemonName} gained ${gainedMagic} magic!`)
     return gainedMagic;
   }
-
 
 }
 
@@ -50,7 +50,7 @@ let thunderbolt = new AttackSkill("Thunderbolt", 80, 95);
 pikachu.learnAttackSkill(lightning);
 pikachu.learnAttackSkill(thunderShock);
 pikachu.learnAttackSkill(thunderbolt);
-console.log(pikachu);
+// console.log(pikachu);
 
 let chikorita = new Pokemon("Chikorita", 113, 128);
 let vineWhip = new AttackSkill("Vine Whip", 16, 24);
@@ -59,7 +59,7 @@ let energyBall = new AttackSkill("Energy Ball", 90, 107);
 chikorita.learnAttackSkill(vineWhip);
 chikorita.learnAttackSkill(grassKnot);
 chikorita.learnAttackSkill(energyBall);
-console.log(chikorita);
+// console.log(chikorita);
 
 let cyndaquil = new Pokemon("Cyndaquil", 105, 118);
 let flame = new AttackSkill("Flame", 15, 23);
@@ -68,7 +68,7 @@ let flamethrower = new AttackSkill("Flamethrower", 70, 95);
 cyndaquil.learnAttackSkill(flame);
 cyndaquil.learnAttackSkill(flameBurst);
 cyndaquil.learnAttackSkill(flamethrower);
-console.log(cyndaquil);
+// console.log(cyndaquil);
 
 let totodile = new Pokemon("Totodile", 120, 137);
 let aqua = new AttackSkill("Aqua", 14, 22);
@@ -77,7 +77,7 @@ let aquaPulse = new AttackSkill("Aqua Pulse", 70, 90);
 totodile.learnAttackSkill(aqua);
 totodile.learnAttackSkill(aquaJet);
 totodile.learnAttackSkill(aquaPulse);
-console.log(totodile);
+// console.log(totodile);
 
 let slowpoke = new Pokemon("Slowpoke", 125, 137);
 let confusion = new AttackSkill("Confusion", 17, 25);
@@ -86,7 +86,7 @@ let psychic = new AttackSkill("Psychic", 90, 110);
 slowpoke.learnAttackSkill(confusion);
 slowpoke.learnAttackSkill(frustration);
 slowpoke.learnAttackSkill(psychic);
-console.log(slowpoke);
+// console.log(slowpoke);
 
 let eevee = new Pokemon("Eevee", 117, 126);
 let tackle = new AttackSkill("Tackle", 12, 20);
@@ -95,7 +95,7 @@ let lastResort = new AttackSkill("Last Resort", 90, 105);
 eevee.learnAttackSkill(tackle);
 eevee.learnAttackSkill(swift);
 eevee.learnAttackSkill(lastResort);
-console.log(eevee);
+// console.log(eevee);
 
 let meowth = new Pokemon("Meowth", 106, 120);
 let scratch = new AttackSkill("Scratch", 20, 25);
@@ -104,7 +104,7 @@ let darkPulse = new AttackSkill("Dark Pulse", 80, 95);
 meowth.learnAttackSkill(scratch);
 meowth.learnAttackSkill(bite);
 meowth.learnAttackSkill(darkPulse);
-console.log(meowth);
+// console.log(meowth);
 
 let psyduck = new Pokemon("Psyduck", 120, 127);
 let waterGun = new AttackSkill("Water Gun", 13, 12);
@@ -113,7 +113,7 @@ let psybeam = new AttackSkill("Psybeam", 70, 85);
 psyduck.learnAttackSkill(waterGun);
 psyduck.learnAttackSkill(zenHeadbutt);
 psyduck.learnAttackSkill(psybeam);
-console.log(psyduck)
+// console.log(psyduck)
 
 let vulpix = new Pokemon("Vulpix", 103, 116);
 let ember = new AttackSkill("Ember", 18, 14);
@@ -122,7 +122,7 @@ let flameCharge = new AttackSkill("Flame Charge", 70, 90);
 vulpix.learnAttackSkill(ember);
 vulpix.learnAttackSkill(flameBall);
 vulpix.learnAttackSkill(flameCharge);
-console.log(vulpix);
+// console.log(vulpix);
 
 let cubone = new Pokemon("Cubone", 103, 116);
 let mudSlap = new AttackSkill("Mud Slap", 20, 15);
@@ -131,7 +131,7 @@ let bulldoze = new AttackSkill("Bulldoze", 80, 100);
 cubone.learnAttackSkill(mudSlap);
 cubone.learnAttackSkill(boneClub);
 cubone.learnAttackSkill(bulldoze);
-console.log(cubone);
+// console.log(cubone);
 
 // Add all pokemon to array
 const pokemons = [];
@@ -147,16 +147,20 @@ pokemons.push(vulpix);
 pokemons.push(cubone);
 
 // pikachu.showStatus();
-// pikachu.getMagic();
-// bulbasaur.showStatus();
-// pikachu.attack(0, bulbasaur);
-// bulbasaur.attack(0, pikachu);
+// vulpix.showStatus();
+// pikachu.attack(1, vulpix);
+// vulpix.attack(1, pikachu);
 // pikachu.showStatus();
-// bulbasaur.showStatus();
+// vulpix.showStatus();
+// pikachu.attack(0, vulpix);
+// vulpix.attack(0, pikachu);
 // pikachu.showStatus();
-// bulbasaur.showStatus();
-// pikachu.attack(0, bulbasaur);
-// pikachu.attack(0, bulbasaur);
+// vulpix.showStatus();
 // pikachu.getMagic();
-// pikachu.attack(0, bulbasaur);
-// bulbasaur.attack(0, pikachu);
+// vulpix.getMagic();
+// pikachu.showStatus();
+// vulpix.showStatus();
+// pikachu.attack(0, vulpix);
+// vulpix.attack(0, pikachu);
+// pikachu.showStatus();
+// vulpix.showStatus();
