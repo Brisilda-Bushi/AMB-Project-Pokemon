@@ -16,7 +16,7 @@ class Player {
 class AudioPlayer {
   constructor(audio) {
     this.audio = audio;
-    this.audio.volume = 0.3;
+    this.audio.volume = 0.1;
     this.battleThemes = ["audio/battle1.mp3"];
     this.victoryThemes = ["audio/victory1.mp3"];
     this.introThemes = ["audio/intro1.mp3"];
