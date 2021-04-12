@@ -79,7 +79,7 @@
 
 /* INTRO */
 .intro {
-  background-image: url("/img/intro-no-loop-compressed.gif");
+  background-image: url("img/intro-no-loop-compressed.gif");
 }
 
 .intro .title {
@@ -109,7 +109,7 @@
 
 /* CHOOSE */
 .choose {
-  background-image: url("/img/background-hero.png");
+  background-image: url("img/background-hero.png");
 }
 
 .choose .btn-start {
@@ -135,7 +135,7 @@
 
 /* BATTLE */
 .battle {
-  background-image: url("/img/background-forest.png");
+  background-image: url("img/background-forest.png");
 }
 
 .battle .battle-log {
@@ -316,7 +316,7 @@
 
 /* GAMEOVER */
 .gameover {
-  background-image: url("/img/gameover-compressed.gif");
+  background-image: url("img/gameover-compressed.gif");
   background-position: center;
 }
 
