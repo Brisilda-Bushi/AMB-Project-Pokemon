@@ -8,21 +8,21 @@ Below you can check some screenshots of the Game.
 
 ### Start Game
 
-![InGame](ingame1.png)
+![InGame](readmeimg/ingame1.png)
 
 ### Players Select Pokemon
 
-![InGame](ingame2.png)
+![InGame](readmeimg/ingame2.png)
 
 ### Screen after picking pokemons and starting the fight
 
-![InGame](ingame3.png)
+![InGame](readmeimg/ingame3.png)
 
 ### Screen while fighting
 
-![InGame](ingame4.png)
+![InGame](readmeimg/ingame4.png)
 
 ### Screen on Game Over
 
-![InGame](ingame5.png)
+![InGame](readmeimg/ingame5.png)
 
